@@ -19,3 +19,13 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+
+
+# ByteDance - Byte Plus Live Streaming
+-keep class com.pandora.**{*;}
+-keep class com.ss.**{*;}
+-keep class com.bytedance.**{*;}
+-keep class com.pandora.ttlicense2.**{*;}
+-keep class com.bytertc.**{*;}
+-keep class org.webrtc.**{*;}

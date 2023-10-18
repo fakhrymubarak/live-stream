@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("kotlin-kapt")
 }
 
 android {
@@ -15,6 +16,14 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        ndk {
+            abiFilters.addAll(arrayOf("armeabi-v7a", "arm64-v8a"))
+        }
+    }
+
+    packagingOptions {
+        pickFirst("**/libc++_shared.so")
     }
 
     buildTypes {
@@ -29,6 +38,7 @@ android {
 
     buildFeatures {
         viewBinding = true
+        dataBinding = true
     }
 
     compileOptions {
@@ -50,4 +60,8 @@ dependencies {
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+
+
+    // ByteDance Live Streaming SDK
+    implementation("com.bytedance.bdlive:bdlive-push-global:1.26.0.external")
 }
