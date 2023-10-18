@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Live Stream</string>
+    <string name="live_streaming">Live Streaming</string>
 </resources>
