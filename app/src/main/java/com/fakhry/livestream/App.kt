@@ -5,6 +5,7 @@ import com.bytedance.live.common.env.BDLiveConfig
 import com.bytedance.live.common.env.BDLiveEnv
 import com.pandora.ttlicense2.LicenseManager
 import com.ss.ttvideoengine.BaseAppInfo
+import timber.log.Timber
 
 class App : Application() {
 
@@ -12,6 +13,11 @@ class App : Application() {
         super.onCreate()
 
         initBDLiveEnv()
+        initTimber()
+    }
+
+    private fun initTimber() {
+        Timber.plant(Timber.DebugTree())
     }
 
     private fun initBDLiveEnv() {
@@ -24,7 +30,7 @@ class App : Application() {
                 .setAppName(BaseAppInfo.mAppName) // The app name used to apply for the TTSDK license. Contact the sales representative to obtain the AppName
                 .setAppChannel("channelName") // The channel through which to download the app
                 .setAppVersion("M_VERSION") // The app version. A valid version number should contain two or more separators, such as 1.3.2
-                .setAppRegion(BaseAppInfo.mRegion) // The region used to apply for the TTSDK license. Always set the region as singapore
+                .setAppRegion("ap-singapore-1") // The region used to apply for the TTSDK license. Always set the region as singapore
                 .setVodLicenseUri(assetsLicenseUri) // URI of the license file for VOD
                 .setLiveLicenseUri(assetsLicenseUri2) // URI of the license file for live streaming
                 .setLicenseCallback(object : LicenseManager.Callback {

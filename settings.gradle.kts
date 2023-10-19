@@ -10,6 +10,7 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        jcenter()
         // URL of a public Maven repository
         maven(url = "https://artifact.bytedance.com/repository/Volcengine/")
         // URL of BytePlus's public repository
